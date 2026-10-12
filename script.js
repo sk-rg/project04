@@ -1,15 +1,14 @@
-
-
 const modeButton = document.getElementById("mode-switcher");
 
-modeButton.addEventListener("click", function () {
-    document.body.classList.toggle("light-theme");
+function updateModeButton() {
+    modeButton.textContent = document.body.classList.contains("dark") ? "Light Mode" : "Dark Mode";
+}
 
-    if (document.body.classList.contains("light-theme")) {
-        modeButton.textContent = "Dark Mode";
-    } else {
-        modeButton.textContent = "Light Mode";
-    }
+updateModeButton();
+
+modeButton.addEventListener("click", function () {
+    document.body.classList.toggle("dark");
+    updateModeButton();
 });
 
 
@@ -33,4 +32,3 @@ contactForm.addEventListener("submit", function (event) {
 
     contactForm.reset();
 });
-
